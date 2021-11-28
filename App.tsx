@@ -21,14 +21,23 @@ import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
 import Navigation from "./src/navigation";
 import { View } from "react-native";
+import { rootStore, StoreProvider, trunk } from "./src/store";
 
 export default function App() {
-  const [isStoreLoaded, setIsStoreLoaded] = useState(true);
+  const [isStoreLoaded, setIsStoreLoaded] = useState(false);
 
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === "dark";
   const theme = isDark ? CombinedDarkTheme : CombinedDefaultTheme;
+
+  useEffect(() => {
+    const rehydrate = async () => {
+      await trunk.init();
+      setIsStoreLoaded(true);
+    }
+    rehydrate();
+  }, []);
 
 
   if (!isLoadingComplete || !isStoreLoaded) {
@@ -39,12 +48,14 @@ export default function App() {
     );
   } else {
     return (
-      <PaperProvider theme={theme}>
-        <SafeAreaProvider>
-          <Navigation theme={theme} />
-          <StatusBar style={isDark ? "light" : "dark"} />
-        </SafeAreaProvider>
-      </PaperProvider>
+      <StoreProvider value={rootStore}>
+        <PaperProvider theme={theme}>
+          <SafeAreaProvider>
+            <Navigation theme={theme} />
+            <StatusBar style={isDark ? "light" : "dark"} />
+          </SafeAreaProvider>
+        </PaperProvider>
+      </StoreProvider>
     );
   }
 }

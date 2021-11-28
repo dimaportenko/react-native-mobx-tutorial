@@ -6,6 +6,7 @@ import { View, KeyboardAvoidingView } from "react-native";
 import { Appbar, TextInput, useTheme } from "react-native-paper";
 import { RootStackScreenProps } from "../types";
 import * as routes from "../navigation/routes";
+import { useStore } from "../store";
 
 type EditClassScreenProps = RootStackScreenProps<typeof routes.EDIT_CLASS> & {};
 
@@ -16,6 +17,8 @@ export const EditClassScreen =
       title: '',
     };
 
+    const { classes } = useStore();
+
     const theme = useTheme();
     const {
       colors: {background},
@@ -25,12 +28,18 @@ export const EditClassScreen =
     const [error, setError] = React.useState(false);
 
     const onDelete = () => {
+      classes.deleteItem(item);
+      navigation.goBack();
     }
 
     const onSave = () => {
       if (!title) {
         setError(true);
       } else {
+        classes.updateItem({
+          id: item.id,
+          title,
+        })
         navigation.goBack();
       }
     };

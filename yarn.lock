@@ -5412,6 +5412,23 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+mobx-react-lite@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.2.2.tgz#cee5f09e6b0e4d2705d87276baf1de74d997fa33"
+  integrity sha512-FxJJMqmHcnQYOVVs2DdjNHioGlFsXF5/9VHztS9NAfIT3DYrxNZzVi119Zr/OmlWKkWNkAsssSNzPkqautfL4A==
+
+mobx-sync@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mobx-sync/-/mobx-sync-3.0.0.tgz#fbbd267442757cf264ee2124730cf57a0f6bd479"
+  integrity sha512-j8DbDB58VfaNH8n+cIIj8yPZjPWOdPz1cUtpaI2NHKzArtZ3S7GZD9MbQJyU7rBIq5+ajfLzuEKF0ruynYPj4A==
+  dependencies:
+    tslib "^2.0.0"
+
+mobx@^6.3.8:
+  version "6.3.8"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.3.8.tgz#a4654b1b69c683237f2444cf0af39a621d4611af"
+  integrity sha512-RfG2y766P1o9u9xrQht/HBXEoUPIr4B3Gjri3reLW/TuHm3I/3TfBBS0OaeMbw19RIF0AymqjDNlJgakN4ZK7g==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -7091,7 +7108,7 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
-tslib@^2.0.1:
+tslib@^2.0.0, tslib@^2.0.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==

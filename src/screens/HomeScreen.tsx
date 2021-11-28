@@ -4,27 +4,18 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import { ClassItemType, RootStackScreenProps } from "../types";
 import * as routes from "../navigation/routes";
 import { ClassItem } from "../components/ClassItem";
+import { useStore } from "../store";
+import { observer } from "mobx-react-lite";
 
 type Props = {} & RootStackScreenProps<typeof routes.HOME>;
 
-const classes: {
-  items: ClassItemType[]
-} = {
-  items: [{
-    id: 1,
-    title: 'Gym',
-  }, {
-    id: 2,
-    title: 'Dance'
-  }]
-};
-
-export const HomeScreen = ({navigation}: Props) => {
+export const HomeScreen = observer(({navigation}: Props) => {
+  const rootStore = useStore();
 
   return (
     <View style={styles.container}>
       <ScrollView>
-        {classes.items.map((item) => {
+        {rootStore.classes.items.map((item) => {
           return (
             <View key={`${item.id}`} style={{marginBottom: 15}}>
               <ClassItem title={item.title} onPress={() => {
@@ -45,7 +36,7 @@ export const HomeScreen = ({navigation}: Props) => {
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
